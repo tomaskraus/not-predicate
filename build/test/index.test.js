@@ -15,11 +15,7 @@ test('Negates the predicate that uses index argument.', () => {
     ]);
 });
 test('Double negation cancels itself.', () => {
-    expect([1, 2, 2, 3].map((0, index_1.not)((0, index_1.not)(isEven)))).toEqual([
-        false,
-        true,
-        true,
-        false,
-    ]);
+    const nums = [1, 2, 2, 3];
+    expect(nums.map((0, index_1.not)((0, index_1.not)(isEven)))).toEqual(nums.map(isEven));
 });
 //# sourceMappingURL=index.test.js.map
