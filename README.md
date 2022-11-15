@@ -19,7 +19,13 @@ You cannot simply use the `!` negation operator on functions, because you cannot
 
 ```ts
 // You cannot do this:
-['a', 'abc'].map(!isPositionEven);
+[3, 2, 8, 5].filter(!isEven);
+```
+
+`not` acts as a predicate, so we can use it:
+
+```ts
+[3, 2, 8, 5].filter(not(isEven)); //=> [ 3, 5 ]
 ```
 
 Plus, there are more `not-predicate`'s advantages:
@@ -54,10 +60,10 @@ const {not} = require('not-predicate');
 Also correctly negates a predicate that uses an index argument:
 
 ```ts
-const isPositionEven = (_: unknown, i: number) => i % 2 === 1;
+const isElementIndexEven = (_: unknown, index: number) => index % 2 === 0;
 
-console.log(['a', 'a', 'a', 'abc'].map(not(isPositionEven)));
-//=> [true, false, true, false];
+console.log(['a', 'a', 'a', 'abc'].map(not(isElementIndexEven)));
+//=> [ false, true, false, true ];
 ```
 
 A predicate type is also provided:
