@@ -2,7 +2,7 @@
 
 # not-predicate
 
-Predicate negation. A predicate that returns a negation of the original predicate:
+Predicate negation. A predicate that negates a result of its predicate argument:
 
 ```ts
 import {not} from 'not-predicate';
@@ -15,8 +15,17 @@ console.log([1, 2, 8, 5].filter(not(isEven)));
 
 ## Why to use
 
-- Typed. With `d.ts` for Javascript.
+You cannot simply use the `!` negation operator on functions, because you cannot cast a function type to boolean:
+
+```ts
+// You cannot do this:
+['a', 'abc'].map(!isPositionEven);
+```
+
+Plus, there are more `not-predicate`'s advantages:
+
 - Suitable for RxJS, IxJS, Array.filter and others.
+- Typed. With `d.ts` for Javascript.
 - Zero-dependency.
 - Well tested.
 
@@ -49,4 +58,10 @@ const isPositionEven = (_: unknown, i: number) => i % 2 === 1;
 
 console.log(['a', 'a', 'a', 'abc'].map(not(isPositionEven)));
 //=> [true, false, true, false];
+```
+
+A predicate type is also provided:
+
+```ts
+export type PredicateType<T> = (value: T, index: number) => boolean;
 ```
