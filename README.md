@@ -2,11 +2,11 @@
 
 # not-predicate
 
-Predicate negation. Suitable for RxJS, IxJS, Array.filter and others.
-
-A predicate that returns a negation of the original predicate:
+Predicate negation. A predicate that returns a negation of the original predicate:
 
 ```ts
+import {not} from 'not-predicate';
+
 const isEven = (n: number) => n % 2 === 0;
 
 console.log([1, 2, 8, 5].filter(not(isEven)));
@@ -16,6 +16,8 @@ console.log([1, 2, 8, 5].filter(not(isEven)));
 ## Why to use
 
 - Typed. With `d.ts` for Javascript.
+- Suitable for RxJS, IxJS, Array.filter and others.
+- Zero-dependency.
 - Well tested.
 
 ## Installation
