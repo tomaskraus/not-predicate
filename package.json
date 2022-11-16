@@ -3,6 +3,7 @@
   "version": "1.0.3",
   "description": "Predicate negation. Suitable for RxJS, Array.filter and others.",
   "types": "build/src/index.d.ts",
+  "main": "build/src/index.js",
   "files": [
     "build/src"
   ],
