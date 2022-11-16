@@ -12,7 +12,7 @@
  *
  * @returns True, if value (and index) meet the predicate's condition.
  */
-export declare type PredicateType<T> = (value: T, index: number) => boolean;
+export type PredicateType<T> = (value: T, index: number) => boolean;
 /**
  * Predicate that negates a result of its predicate argument.
  * @see {@link PredicateType}
