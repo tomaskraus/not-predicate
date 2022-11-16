@@ -1,7 +1,7 @@
 {
   "name": "not-predicate",
   "version": "1.0.1",
-  "description": "Predicate negation. Suitable for RxJS, IxJS, Array.filter and others.",
+  "description": "Predicate negation. Suitable for RxJS, Array.filter and others.",
   "types": "build/src/index.d.ts",
   "files": [
     "build/src"

@@ -1,6 +1,6 @@
 "use strict";
 /**
- * Predicate negation. Suitable for RxJS, IxJS, Array.filter and others.
+ * Predicate negation. Suitable for RxJS, Array.filter and others.
  *
  * @public
  */

@@ -31,7 +31,7 @@ You cannot simply use the `!` negation operator on functions, because you cannot
 
 Plus, there are more `not-predicate`'s advantages:
 
-- Suitable for RxJS, IxJS, Array.filter and others.
+- Works well with RxJS, Array.filter and others.
 - Typed. With `d.ts` for Javascript.
 - Zero-dependency.
 - Well tested.
