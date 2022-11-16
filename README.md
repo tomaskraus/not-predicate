@@ -31,7 +31,7 @@ You cannot simply use the `!` negation operator on functions, because you cannot
 
 Plus, there are more `not-predicate`'s advantages:
 
-- Suitable for RxJS, IxJS, Array.filter and others.
+- Works well with RxJS, Array.filter and others.
 - Typed. With `d.ts` for Javascript.
 - Zero-dependency.
 - Well tested.
@@ -71,4 +71,21 @@ A predicate type is also provided:
 
 ```ts
 export type PredicateType<T> = (value: T, index: number) => boolean;
+```
+
+We can also use the `not-predicate` in [RxJS](https://rxjs.dev/):
+
+```ts
+import {not} from 'not-predicate';
+import {from} from 'rxjs';
+import {filter} from 'rxjs/operators';
+
+const evenValueOnEvenIndex = (val: number, index: number) =>
+  val % 2 === 0 && index % 2 === 0;
+
+const src = from([1, 3, 5, 4, 6, 8]).pipe(filter(not(evenValueOnEvenIndex)));
+const res: number[] = [];
+src.subscribe(x => res.push(x));
+console.log(res);
+//=> [ 1, 3, 5, 4, 8 ]
 ```
