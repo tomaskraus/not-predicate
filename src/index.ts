@@ -24,5 +24,7 @@ export type PredicateType<T> = (value: T, index: number) => boolean;
  * @returns {(value: T, index: number) => boolean} A predicate that negates a result of its predicate argument.
  */
 export function not<T>(predicate: PredicateType<T>): PredicateType<T> {
-  return (value: T, index: number) => !predicate(value, index);
+  return function (this: any, value: T, index: number) {
+    return !predicate.call(this, value, index);
+  };
 }
