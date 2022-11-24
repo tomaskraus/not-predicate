@@ -58,13 +58,32 @@ const {not} = require('not-predicate');
 
 ## More
 
-Also correctly negates a predicate that uses an index argument:
+Correctly negates a predicate that uses an index argument:
 
 ```ts
 const isElementIndexEven = (_: unknown, index: number) => index % 2 === 0;
 
 console.log(['a', 'a', 'a', 'abc'].map(not(isElementIndexEven)));
 //=> [ false, true, false, true ];
+```
+
+Deals with `this` object properly:
+
+```ts
+const customWindow = {
+  innerWidth: 640,
+  innerHeight: 480,
+};
+
+function canXCoordFit(x) {
+  return x > 0 && x <= this.innerWidth;
+}
+
+const xValues = [-10, 20, 680, 600, 800, 5];
+const xsThatCanFit1 = xValues.filter(not(canXCoordFit), customWindow);
+const xsThatCanFit2 = xValues.filter(not(canXCoordFit).bind(customWindow));
+console.log(xsThatCanFit1, xsThatCanFit2);
+//=> [ -10, 680, 800 ] [ -10, 680, 800 ]
 ```
 
 A predicate type is also provided:
