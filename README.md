@@ -70,7 +70,7 @@ console.log(['a', 'a', 'a', 'abc'].map(not(isElementIndexEven)));
 A predicate type is also provided:
 
 ```ts
-export type PredicateType<T> = (value: T, index: number) => boolean;
+export type TPredicate<T> = (value: T, index: number) => boolean;
 ```
 
 We can also use the `not-predicate` in [RxJS](https://rxjs.dev/):

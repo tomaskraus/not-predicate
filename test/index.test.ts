@@ -1,6 +1,6 @@
-import {not, PredicateType} from '../src/index';
+import {not, TPredicate} from '../src/index';
 
-const isEven: PredicateType<number> = (n: number) => n % 2 === 0;
+const isEven: TPredicate<number> = (n: number) => n % 2 === 0;
 const isPositionEven = (_: unknown, i: number) => i % 2 === 1;
 
 const customThis = {

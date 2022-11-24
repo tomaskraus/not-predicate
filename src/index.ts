@@ -13,17 +13,17 @@
  *
  * @returns True, if value (and index) meet the predicate's condition.
  */
-export type PredicateType<T> = (value: T, index: number) => boolean;
+export type TPredicate<T> = (value: T, index: number) => boolean;
 
 /**
  * Predicate that negates a result of its predicate argument.
- * @see {@link PredicateType}
+ * @see {@link TPredicate}
  *
  * @template T The type of input value.
  * @param {(value: T, index: number) => boolean} predicate A predicate argument. A function to test a value for condition. Predicate can also accept an index argument, such as array position.
  * @returns {(value: T, index: number) => boolean} A predicate that negates a result of its predicate argument.
  */
-export function not<T>(predicate: PredicateType<T>): PredicateType<T> {
+export function not<T>(predicate: TPredicate<T>): TPredicate<T> {
   return function (this: any, value: T, index: number) {
     return !predicate.call(this, value, index);
   };
